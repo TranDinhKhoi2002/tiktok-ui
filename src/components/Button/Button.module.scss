@@ -22,9 +22,20 @@
   }
 }
 
+.title {
+  line-height: 2.4rem;
+  margin: auto 0;
+}
+
 .title + .icon,
 .icon + .title {
   margin-left: 9px;
+}
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
 }
 
 // Button types
