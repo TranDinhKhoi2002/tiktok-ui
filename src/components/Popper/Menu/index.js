@@ -20,8 +20,8 @@ function Menu({ items = [], children, onChange = defaultFn }) {
       const isParent = !!item.children;
       return (
         <MenuItem
-          data={item}
           key={index}
+          data={item}
           onClick={() => {
             if (isParent) {
               setHistory((prevHistory) => [...prevHistory, item.children]);
@@ -39,6 +39,10 @@ function Menu({ items = [], children, onChange = defaultFn }) {
       delay={[0, 700]}
       interactive
       placement="bottom-end"
+      offset={[12, 8]}
+      onHide={() => {
+        setHistory((prevHistory) => prevHistory.slice(0, 1));
+      }}
       render={(attrs) => (
         <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
           <PopperWrapper className={cx("menu-popper")}>
