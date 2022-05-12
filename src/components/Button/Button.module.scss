@@ -22,11 +22,6 @@
   }
 }
 
-.title {
-  line-height: 2.4rem;
-  margin: auto 0;
-}
-
 .title + .icon,
 .icon + .title {
   margin-left: 9px;
@@ -41,15 +36,11 @@
 // Button types
 .rounded {
   border-color: rgba(22, 24, 35, 0.12);
-  border-radius: 52px;
+  border-radius: 999px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-  background: none;
-  color: rgba(22, 24, 35, 0.75);
-  font-size: 1.4rem;
-  min-width: 90px;
-  padding: 8px 16px;
 
   &:hover {
+    border-color: rgba(22, 24, 35, 0.2);
     background-color: rgba(22, 24, 35, 0.03);
   }
 }
@@ -70,6 +61,7 @@
   border-color: currentColor;
 
   &:hover {
+    border-color: currentColor;
     background-color: rgba(254, 44, 85, 0.06);
   }
 }
