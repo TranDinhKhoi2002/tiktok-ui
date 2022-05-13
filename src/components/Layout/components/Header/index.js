@@ -17,8 +17,6 @@ import {
   faLanguage,
   faCircleQuestion,
   faKeyboard,
-  faCloudUpload,
-  faPaperPlane,
   faUser,
   faCoins,
   faGear,
@@ -28,6 +26,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AccountItem from "~/components/AccountItem";
 import Button from "~/components/Button";
 import Menu from "~/components/Popper/Menu";
+import { UploadIcon } from "~/components/Icons";
+import Image from "~/components/Images";
 
 const cx = classNames.bind(styles);
 
@@ -136,12 +136,9 @@ function Header() {
             <Fragment>
               <Tippy content="Upload video" placement="bottom" delay={[0, 200]}>
                 <button className={cx("action-btn")}>
-                  <FontAwesomeIcon icon={faCloudUpload} />
+                  <UploadIcon />
                 </button>
               </Tippy>
-              <button className={cx("action-btn")}>
-                <FontAwesomeIcon icon={faPaperPlane} />
-              </button>
             </Fragment>
           ) : (
             <Fragment>
@@ -151,10 +148,11 @@ function Header() {
           )}
           <Menu items={currentUser ? userMenu : DUMMY_MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
-              <img
+              <Image
                 className={cx("user-avatar")}
-                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/2e12d313a7e2a50eabb5ba044c095614~c5_100x100.jpeg?x-expires=1652536800&x-signature=ORWEZEnsHSNboYtZjeqC1Kig500%3D"
+                src="https://p16-sign-va.tiktokcd.com/tos-useast2a-avt-0068-giso/2e12d313a7e2a50eabb5ba044c095614~c5_100x100.jpeg?x-expires=1652536800&x-signature=ORWEZEnsHSNboYtZjeqC1Kig500%3D"
                 alt=""
+                fallbackImg="https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/1594805258216454~c5_720x720.jpeg?x-expires=1652626800&x-signature=CgeuQDyFXBAC22v%2B9KYEtMLPULM%3D"
               />
             ) : (
               <button className={cx("more-btn")}>
