@@ -1,18 +1,13 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import "tippy.js/dist/tippy.css";
 import images from "~/assets/images";
 
-import HeadlessTippy from "@tippyjs/react/headless";
 import Tippy from "@tippyjs/react";
-import { Wrapper as PopperWrapper } from "~/components/Popper";
 
 import {
-  faCircleXmark,
-  faSpinner,
-  faMagnifyingGlass,
   faEllipsisVertical,
   faLanguage,
   faCircleQuestion,
@@ -23,11 +18,11 @@ import {
   faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AccountItem from "~/components/AccountItem";
 import Button from "~/components/Button";
 import Menu from "~/components/Popper/Menu";
-import { UploadIcon } from "~/components/Icons";
+import { MailboxIcon, MessageIcon, UploadIcon } from "~/components/Icons";
 import Image from "~/components/Images";
+import Search from "../Search";
 
 const cx = classNames.bind(styles);
 
@@ -55,15 +50,7 @@ const DUMMY_MENU_ITEMS = [
 ];
 
 function Header() {
-  const [searchResult, setSearchResult] = useState([]);
-
   const currentUser = true;
-
-  useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([]);
-    }, 0);
-  });
 
   const handleMenuChange = (menuItem) => {
     switch (menuItem.type) {
@@ -103,40 +90,25 @@ function Header() {
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
         <img src={images.logo} alt="Tiktok" />
-        <HeadlessTippy
-          visible={searchResult.length > 0}
-          interactive={true}
-          render={(attrs) => (
-            <div className={cx("search-result")} tabIndex={-1} {...attrs}>
-              <PopperWrapper>
-                <h3 className={cx("search-title")}>Accounts</h3>
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cx("search")}>
-            <input placeholder="Search accounts and videos" spellCheck={false} />
-            <button className={cx("clear-btn")}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
-            <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />
 
-            <button className={cx("search-btn")}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
-          </div>
-        </HeadlessTippy>
+        <Search />
 
         <div className={cx("actions")}>
           {currentUser ? (
             <Fragment>
-              <Tippy content="Upload video" placement="bottom" delay={[0, 200]}>
+              <Tippy content="Upload video" placement="bottom" delay={[0, 50]}>
                 <button className={cx("action-btn")}>
                   <UploadIcon />
+                </button>
+              </Tippy>
+              <Tippy content="Message" placement="bottom" delay={[0, 50]}>
+                <button className={cx("action-btn")}>
+                  <MessageIcon width="2.6rem" height="2.6rem" />
+                </button>
+              </Tippy>
+              <Tippy content="Mailbox" placement="bottom" delay={[0, 50]}>
+                <button className={cx("action-btn")}>
+                  <MailboxIcon />
                 </button>
               </Tippy>
             </Fragment>
@@ -150,7 +122,7 @@ function Header() {
             {currentUser ? (
               <Image
                 className={cx("user-avatar")}
-                src="https://p16-sign-va.tiktokcd.com/tos-useast2a-avt-0068-giso/2e12d313a7e2a50eabb5ba044c095614~c5_100x100.jpeg?x-expires=1652536800&x-signature=ORWEZEnsHSNboYtZjeqC1Kig500%3D"
+                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/128514347b4c1a4e6a54a745d292d543.jpeg?x-expires=1652947200&x-signature=SThB7UZh4%2FZfM%2F3nQGXvkkvmgJs%3D"
                 alt=""
                 fallbackImg="https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/1594805258216454~c5_720x720.jpeg?x-expires=1652626800&x-signature=CgeuQDyFXBAC22v%2B9KYEtMLPULM%3D"
               />
