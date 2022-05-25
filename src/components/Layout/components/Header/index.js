@@ -4,9 +4,10 @@ import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import "tippy.js/dist/tippy.css";
 import images from "~/assets/images";
+import routesConfig from "~/config/routes";
 
 import Tippy from "@tippyjs/react";
-
+import { Link } from "react-router-dom";
 import {
   faEllipsisVertical,
   faLanguage,
@@ -18,6 +19,7 @@ import {
   faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import Button from "~/components/Button";
 import Menu from "~/components/Popper/Menu";
 import { MailboxIcon, MessageIcon, UploadIcon } from "~/components/Icons";
@@ -89,7 +91,9 @@ function Header() {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <img src={images.logo} alt="Tiktok" />
+        <Link to={routesConfig.home} className={cx("logo-link")}>
+          <img src={images.logo} alt="Tiktok" />
+        </Link>
 
         <Search />
 
@@ -109,6 +113,7 @@ function Header() {
               <Tippy content="Mailbox" placement="bottom" delay={[0, 50]}>
                 <button className={cx("action-btn")}>
                   <MailboxIcon />
+                  <span>12</span>
                 </button>
               </Tippy>
             </Fragment>
@@ -122,7 +127,7 @@ function Header() {
             {currentUser ? (
               <Image
                 className={cx("user-avatar")}
-                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/128514347b4c1a4e6a54a745d292d543.jpeg?x-expires=1652947200&x-signature=SThB7UZh4%2FZfM%2F3nQGXvkkvmgJs%3D"
+                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/128514347b4c1a4e6a54a745d292d543.jpeg?x-expires=1653573600&x-signature=exhJ7l31DaR%2BSskE1WQCkH%2FRg2Q%3D"
                 alt=""
                 fallbackImg="https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/1594805258216454~c5_720x720.jpeg?x-expires=1652626800&x-signature=CgeuQDyFXBAC22v%2B9KYEtMLPULM%3D"
               />
