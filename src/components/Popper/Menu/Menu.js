@@ -48,7 +48,7 @@ function Menu({ items = [], hideOnClick = false, children, onChange = defaultFn 
     </div>
   );
 
-  const resetToFirstPage = () => {
+  const resetToFirstPageHandler = () => {
     setHistory((prevHistory) => prevHistory.slice(0, 1));
   };
 
@@ -59,7 +59,7 @@ function Menu({ items = [], hideOnClick = false, children, onChange = defaultFn 
       placement="bottom-end"
       hideOnClick={hideOnClick}
       offset={[12, 8]}
-      onHide={resetToFirstPage}
+      onHide={resetToFirstPageHandler}
       render={renderResult}
     >
       {children}
