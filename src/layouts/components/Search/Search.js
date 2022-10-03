@@ -21,7 +21,6 @@ function Search() {
   const [loading, setLoading] = useState(false);
 
   const debouncedValue = useDebounce(searchValue, 500);
-
   useEffect(() => {
     if (debouncedValue.trim().length === 0) {
       setSearchResult([]);

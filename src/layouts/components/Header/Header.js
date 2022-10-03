@@ -52,7 +52,7 @@ const DUMMY_MENU_ITEMS = [
 ];
 
 function Header() {
-  const currentUser = false;
+  const currentUser = true;
 
   const handleMenuChange = (menuItem) => {
     switch (menuItem.type) {
@@ -127,7 +127,7 @@ function Header() {
             {currentUser ? (
               <Image
                 className={cx("user-avatar")}
-                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/128514347b4c1a4e6a54a745d292d543.jpeg?x-expires=1654995600&x-signature=bwU3ZW4SKk6PKZakdxBaRpDkbDs%3D"
+                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/11c538fefc7083eeaaf4c393e9731b1d~c5_100x100.jpeg?x-expires=1664884800&x-signature=dxXle4sEa6Q5oUrtBC1%2FSwcqq1A%3D"
                 alt=""
                 fallbackImg="https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/1594805258216454~c5_720x720.jpeg?x-expires=1652626800&x-signature=CgeuQDyFXBAC22v%2B9KYEtMLPULM%3D"
               />

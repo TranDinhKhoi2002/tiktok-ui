@@ -45,8 +45,6 @@ function Button({
     Comp = "a";
   }
 
-  //   console.log(className);
-
   const classes = cx("wrapper", {
     primary,
     outline,
